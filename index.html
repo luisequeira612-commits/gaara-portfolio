@@ -11,7 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#100808;--red:#c33132;--red2:#7e171d;--sand:#d9b98e;--cream:#f4e9dc;--muted:#b8aaa0}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--cream);font-family:"DM Sans",sans-serif;overflow-x:hidden}a{color:inherit;text-decoration:none}button{font:inherit}
+*{box-sizing:border-box}html{scroll-behavior:smooth}a:focus-visible,button:focus-visible{outline:2px solid #e6a27f;outline-offset:4px}.skip-link{position:absolute;top:8px;left:8px;z-index:20;padding:10px 14px;background:#f4e9dc;color:#160a0b;font-size:12px;transform:translateY(-150%)}.skip-link:focus{transform:translateY(0)}body{margin:0;background:var(--bg);color:var(--cream);font-family:"DM Sans",sans-serif;overflow-x:hidden}a{color:inherit;text-decoration:none}button{font:inherit}
 .site{min-height:100svh;position:relative;isolation:isolate;overflow:hidden;background:radial-gradient(ellipse at 78% 48%,#5b171a 0,#260d10 34%,#100808 72%)}
 .site:before{content:"";position:absolute;inset:0;z-index:-1;opacity:.15;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.4'/%3E%3C/svg%3E")}
 header{height:88px;padding:0 7%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ffffff18;position:relative;z-index:5}
@@ -42,7 +42,7 @@ h1{font:500 clamp(66px,8.7vw,124px)/.9 Cinzel,serif;letter-spacing:-.055em;margi
 .gallery-intro{min-width:160px}.gallery-intro strong{font:500 11px Cinzel,serif;letter-spacing:.17em}.gallery-intro small{display:block;color:#a8978c;font-size:8px;letter-spacing:.2em;text-transform:uppercase;margin-top:7px}
 .cards{display:flex;gap:12px;justify-content:center}.scene{width:clamp(92px,12vw,150px);height:75px;position:relative;border:1px solid #ffffff30;background:#1b0d0e;padding:0;overflow:hidden;cursor:pointer;opacity:.64;transition:.25s}.scene img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.75)}.scene span{position:absolute;left:8px;bottom:7px;font:500 8px Cinzel,serif;letter-spacing:.1em;text-shadow:0 1px 8px #000}.scene:hover,.scene[aria-pressed=true]{opacity:1;border-color:#df8c75;transform:translateY(-5px)}
 .count{font:500 11px Cinzel,serif;letter-spacing:.2em;color:#d2b08e;white-space:nowrap}
-.story{padding:100px 7%;display:grid;grid-template-columns:1fr 1fr;gap:9%;align-items:center;background:#100808;border-top:1px solid #ffffff14}.story-art{min-height:390px;background:linear-gradient(0deg,#10080855,#10080811),url("https://images8.alphacoders.com/108/thumb-1920-1088994.png") center/cover;position:relative}.story-art:after{content:"愛";position:absolute;right:-18px;bottom:-42px;font:400 130px serif;color:#c13b352b}.section-label{color:#d17d6b;font-size:9px;letter-spacing:.3em;text-transform:uppercase}.story h2{font:500 clamp(30px,4vw,52px)/1.13 Cinzel,serif;margin:17px 0}.story p{color:#bbaaa0;font-size:13px;line-height:1.95;max-width:520px}.facts{display:flex;gap:34px;margin-top:30px}.fact b{display:block;font:500 22px Cinzel,serif;color:#d9b98e}.fact span{font-size:8px;color:#a18e82;letter-spacing:.15em;text-transform:uppercase}
+.story{padding:100px 7%;display:grid;grid-template-columns:1fr 1fr;gap:9%;align-items:center;background:#100808;border-top:1px solid #ffffff14}.story-art{min-height:390px;background:radial-gradient(ellipse at 55% 40%,#87302d 0,#351316 52%,#160a0b 100%);position:relative}.story-art.has-art{background-image:linear-gradient(0deg,#10080855,#10080811),var(--story-art);background-position:center;background-size:cover}.story-art:before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,#160a0b55,transparent 55%,#160a0b66);pointer-events:none}.story-art:after{content:"愛";position:absolute;right:-18px;bottom:-42px;font:400 130px serif;color:#c13b352b}.section-label{color:#d17d6b;font-size:9px;letter-spacing:.3em;text-transform:uppercase}.story h2{font:500 clamp(30px,4vw,52px)/1.13 Cinzel,serif;margin:17px 0}.story p{color:#bbaaa0;font-size:13px;line-height:1.95;max-width:520px}.facts{display:flex;gap:34px;margin-top:30px}.fact b{display:block;font:500 22px Cinzel,serif;color:#d9b98e}.fact span{font-size:8px;color:#a18e82;letter-spacing:.15em;text-transform:uppercase}
 footer{padding:24px 7%;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;border-top:1px solid #ffffff14;color:#81736b;font-size:8px;letter-spacing:.16em;text-transform:uppercase}
 @keyframes enter{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 @media(max-width:780px){header{height:70px;padding:0 6%}.menu{display:block}nav{display:none;position:absolute;top:69px;left:0;right:0;padding:22px 7%;background:#160a0bf5;border-bottom:1px solid #ffffff20;flex-direction:column;align-items:flex-start;gap:22px}nav.open{display:flex}.hero{min-height:calc(100svh - 70px);min-height:calc(100dvh - 70px);display:flex;flex-direction:column;justify-content:flex-end;align-items:stretch;padding:0 7% max(145px,calc(115px + env(safe-area-inset-bottom)))}.visual{position:absolute;inset:0 0 115px;height:auto;min-height:0;margin:0;opacity:.83}.portrait{background-position:58% center;mask-image:linear-gradient(0deg,transparent 0%,#000 23%,#000 100%);-webkit-mask-image:linear-gradient(0deg,transparent 0%,#000 23%,#000 100%)}.sun{width:72vw;top:10%;left:20%}.copy{max-width:440px;padding-top:clamp(38vh,48vh,520px)}.kicker{margin-bottom:15px}h1{font-size:clamp(66px,18vw,110px)}.description{font-size:12px;max-width:350px}.side-label{display:none}.visual-word{right:5%;top:18%;bottom:auto;font-size:100px}.gallerybar{min-height:108px;padding:13px 6% max(13px,env(safe-area-inset-bottom));gap:12px}.gallery-intro{display:none}.cards{width:100%;gap:8px}.scene{width:25%;height:65px}.count{font-size:9px}.story{padding:68px 7%;grid-template-columns:1fr;gap:32px}.story-art{min-height:270px}.facts{gap:24px}}
@@ -51,9 +51,10 @@ footer{padding:24px 7%;display:flex;justify-content:space-between;gap:15px;flex-
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to content</a>
 <div class="site" id="home">
-<header><a class="logo" href="#home">砂 <b>GAARA</b></a><button class="menu" id="menu" aria-label="Open navigation" aria-expanded="false">☰</button><nav id="nav"><a class="active" href="#home">Home</a><a href="#story">The Kazekage</a><a href="#gallery">Gallery</a><a href="#story">About</a></nav></header>
-<main class="hero">
+<header><a class="logo" href="#home">砂 <b>GAARA</b></a><button class="menu" id="menu" aria-label="Open navigation" aria-controls="nav" aria-expanded="false">☰</button><nav id="nav"><a class="active" href="#home">Home</a><a href="#story">The Kazekage</a><a href="#gallery">Gallery</a><a href="#story">About</a></nav></header>
+<main class="hero" id="main-content">
 <section class="copy"><p class="kicker" id="kicker">ANIME CHARACTER</p><h1 id="name">GAARA</h1><p class="role" id="role">THE FIFTH KAZEKAGE</p><p class="description" id="description">Once feared as a weapon, he chose to become a shield. The desert remembers his past; the village trusts his future.</p><a class="cta" href="#story">Discover his story <span>↗</span></a></section>
 <div class="visual" aria-label="Gaara artwork"><div class="sun"></div><div class="portrait" id="portrait"></div><div class="sand-particles"></div><p class="image-status" id="imageStatus" role="status" aria-live="polite"></p><div class="visual-word">砂</div></div><div class="side-label">Guardian of the sand · Sunagakure</div>
 <div class="gallerybar" id="gallery"><div class="gallery-intro"><strong id="chapter">THE SAND GUARDIAN</strong><small id="chapterSub">A legacy beyond fear</small></div><div class="cards" role="group" aria-label="Choose a Gaara scene">
@@ -74,16 +75,20 @@ const scenes=[
 ];
 const portrait=document.getElementById("portrait");
 const imageStatus=document.getElementById("imageStatus");
+let artworkRequest=0;
 function loadSceneArtwork(scene){
+  const request=++artworkRequest;
   const candidate=new Image();
   portrait.style.opacity=".55";
   candidate.onload=()=>{
+    if(request!==artworkRequest)return;
     portrait.style.backgroundImage='linear-gradient(90deg,#1a090b 0%,transparent 28%,transparent 80%,#1a090b22 100%),linear-gradient(0deg,#1a090b 0%,transparent 24%,transparent 80%,#1a090b55 100%),url("'+scene.image+'")';
     portrait.classList.remove("image-unavailable");
     portrait.style.opacity=".96";
     imageStatus.textContent="";
   };
   candidate.onerror=()=>{
+    if(request!==artworkRequest)return;
     portrait.classList.add("image-unavailable");
     portrait.style.opacity=".96";
     imageStatus.textContent="Artwork unavailable — showing the desert backdrop.";
@@ -92,6 +97,10 @@ function loadSceneArtwork(scene){
 }
 document.querySelectorAll(".scene img").forEach(img=>img.addEventListener("error",()=>img.closest(".scene").classList.add("image-missing")));
 loadSceneArtwork(scenes[0]);
+const storyArt=document.querySelector(".story-art");
+const storyImage=new Image();
+storyImage.onload=()=>{storyArt.style.setProperty("--story-art", "url(https://images8.alphacoders.com/108/thumb-1920-1088994.png)");storyArt.classList.add("has-art")};
+storyImage.src="https://images8.alphacoders.com/108/thumb-1920-1088994.png";
 document.querySelectorAll(".scene").forEach(button=>button.addEventListener("click",()=>{
 const i=Number(button.dataset.i),s=scenes[i];
 loadSceneArtwork(s);
@@ -100,7 +109,7 @@ document.querySelectorAll(".scene").forEach(b=>b.setAttribute("aria-pressed",Str
 document.getElementById("count").textContent=String(i+1).padStart(2,"0")+" / 04";
 }));
 const menu=document.getElementById("menu"),nav=document.getElementById("nav");
-menu.addEventListener("click",()=>{const open=nav.classList.toggle("open");menu.setAttribute("aria-expanded",String(open));menu.textContent=open?"×":"☰"});
-nav.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{nav.classList.remove("open");menu.setAttribute("aria-expanded","false");menu.textContent="☰"}));
+menu.addEventListener("click",()=>{const open=nav.classList.toggle("open");menu.setAttribute("aria-expanded",String(open));menu.setAttribute("aria-label",open?"Close navigation":"Open navigation");menu.textContent=open?"×":"☰"});
+nav.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{nav.classList.remove("open");menu.setAttribute("aria-expanded","false");menu.setAttribute("aria-label","Open navigation");menu.textContent="☰"}));
 </script>
 </body></html>
