@@ -1,0 +1,25 @@
+name: Validate static site
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check required page structure
+        run: |
+          test -s index.html
+          grep -q '<title>GAARA' index.html
+          grep -q 'id="gallery"' index.html
+          grep -q 'id="story"' index.html
+          grep -q 'prefers-reduced-motion' index.html
+          grep -q 'aria-pressed' index.html
+      - name: Check deployment workflow
+        run: |
+          test -s .github/workflows/pages.yml
+          grep -q 'actions/deploy-pages@v4' .github/workflows/pages.yml
