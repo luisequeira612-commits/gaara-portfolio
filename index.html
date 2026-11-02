@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#100b0b">
+<meta name="description" content="Gaara of the Sand — The Fifth Kazekage. An immersive fan-made character experience.">
+<title>GAARA — The Sand Guardian</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap');
+:root{--red:#a92e32;--sand:#d7b88a;--ink:#100b0b;--muted:#b7a79b}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--ink);color:#f6eee7;font-family:'DM Sans',sans-serif;overflow-x:hidden}button,a{font:inherit}button{color:inherit}
+.page{min-height:100svh;position:relative;isolation:isolate;overflow:hidden;background:#130c0c}
+.backdrop{position:absolute;inset:0;z-index:-3;background-image:linear-gradient(90deg,rgba(12,8,8,.96) 0%,rgba(16,9,9,.78) 37%,rgba(16,9,9,.2) 72%,rgba(16,9,9,.48) 100%),linear-gradient(0deg,#100b0b 0%,transparent 32%,rgba(0,0,0,.12) 100%),url('https://images5.alphacoders.com/141/1410564.png');background-size:cover;background-position:center 35%;filter:saturate(.8);transition:background-image .5s ease}
+.grain{position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.12;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E")}
+header{height:94px;display:flex;align-items:center;justify-content:space-between;padding:0 7.2%;border-bottom:1px solid rgba(255,255,255,.1);position:relative;z-index:4}
+.brand{font-family:Cinzel,serif;font-size:17px;letter-spacing:.24em;font-weight:700}.brand span{color:var(--red)}
+nav{display:flex;gap:38px}nav a{color:#ddd0c7;text-decoration:none;text-transform:uppercase;font-size:10px;letter-spacing:.2em;transition:color .2s}nav a:hover,nav a.active{color:#e6a29a}
+.menu{display:none;background:none;border:0;font-size:24px}
+main{min-height:calc(100svh - 94px);display:flex;align-items:center;padding:4vh 7.2% 13vh;position:relative}
+.content{width:min(570px,52%);position:relative;z-index:2;animation:rise .9s both}
+.eyebrow{display:flex;align-items:center;gap:14px;color:#d5a18f;font-size:10px;letter-spacing:.34em;text-transform:uppercase;margin-bottom:25px}.eyebrow:before{content:"";width:40px;height:1px;background:var(--red)}
+h1{font-family:Cinzel,serif;font-size:clamp(66px,10vw,144px);line-height:.86;letter-spacing:-.055em;margin:0 0 20px;font-weight:500;text-shadow:0 8px 40px #0008}
+.subtitle{font-family:Cinzel,serif;letter-spacing:.22em;text-transform:uppercase;font-size:clamp(12px,1.3vw,16px);color:#d9c6b0;margin:0 0 28px}
+.description{max-width:410px;color:#c7b9b0;font-size:14px;line-height:1.9;font-weight:300}
+.actions{display:flex;align-items:center;gap:22px;margin-top:35px}.primary{border:1px solid #b75b54;background:linear-gradient(110deg,#8c2428,#5d171b);padding:15px 24px;text-transform:uppercase;letter-spacing:.17em;font-size:10px;cursor:pointer;transition:.25s}.primary:hover{transform:translateY(-3px);box-shadow:0 12px 35px #8c242844}.text-link{color:#e7d8ca;text-decoration:none;font-size:10px;letter-spacing:.18em;text-transform:uppercase;border-bottom:1px solid #806c5e;padding:0 0 6px}
+.side-note{position:absolute;right:4.3%;top:45%;writing-mode:vertical-rl;letter-spacing:.32em;text-transform:uppercase;font-size:9px;color:#c8b5a1;display:flex;align-items:center;gap:18px}.side-note:after{content:"";height:70px;width:1px;background:#a94b43}
+.kanji{position:absolute;right:17%;top:17%;font-family:serif;font-size:clamp(110px,18vw,260px);color:#b03a3620;line-height:1;pointer-events:none}
+.bottom{position:absolute;bottom:0;left:0;right:0;min-height:112px;padding:18px 7.2%;display:flex;align-items:center;justify-content:space-between;border-top:1px solid #ffffff20;background:linear-gradient(0deg,#100b0bdf,#100b0b50);z-index:3}
+.chapter{display:flex;align-items:center;gap:15px}.chapter strong{font-family:Cinzel,serif;font-size:12px;letter-spacing:.15em;font-weight:500}.chapter small{display:block;color:#a99a8e;font-size:9px;letter-spacing:.18em;margin-top:5px;text-transform:uppercase}
+.thumbs{display:flex;gap:10px}.thumb{width:82px;height:56px;padding:0;border:1px solid #ffffff45;background:#171010;cursor:pointer;overflow:hidden;opacity:.58;transition:.25s}.thumb img{width:100%;height:100%;object-fit:cover}.thumb:hover,.thumb.selected{opacity:1;border-color:#d38b76;transform:translateY(-4px)}
+.counter{font-family:Cinzel,serif;color:#c5a990;font-size:12px;letter-spacing:.2em}
+.about{padding:100px 7.2%;background:#100b0b;display:grid;grid-template-columns:1fr 1.1fr;gap:9%;align-items:center;border-top:1px solid #ffffff12}.about-art{min-height:400px;background:linear-gradient(0deg,#100b0b55,#100b0b11),url('https://images8.alphacoders.com/108/thumb-1920-1088994.png') center/cover;position:relative}.about-art:after{content:"愛";position:absolute;right:-22px;bottom:-42px;font-family:serif;font-size:130px;color:#a932322b}.section-label{color:#c67b6c;letter-spacing:.3em;font-size:10px;text-transform:uppercase}.about h2{font:500 clamp(30px,4vw,52px)/1.1 Cinzel,serif;margin:18px 0}.about p{color:#b9aaa0;font-size:14px;line-height:1.9;max-width:520px}.stats{display:flex;gap:40px;margin-top:32px}.stat b{display:block;font:500 24px Cinzel,serif;color:#d4ad8b}.stat span{font-size:9px;color:#9e8d82;letter-spacing:.16em;text-transform:uppercase}
+footer{padding:25px 7.2%;display:flex;justify-content:space-between;color:#796d65;font-size:9px;letter-spacing:.15em;text-transform:uppercase;border-top:1px solid #ffffff12}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:760px){header{height:72px;padding:0 6%}.menu{display:block}nav{display:none;position:absolute;top:71px;left:0;right:0;background:#130d0df5;padding:24px 7%;flex-direction:column;gap:22px;border-bottom:1px solid #ffffff20}nav.open{display:flex}main{min-height:calc(100svh - 72px);padding:9vh 7% 160px;align-items:flex-end}.backdrop{background-image:linear-gradient(0deg,rgba(12,8,8,.98) 0%,rgba(16,9,9,.8) 43%,rgba(16,9,9,.16) 100%),linear-gradient(90deg,#100b0b66,transparent),url('https://images5.alphacoders.com/141/1410564.png');background-position:58% top;background-size:auto 100%;}.content{width:100%;padding-top:42vh}.eyebrow{margin-bottom:16px}h1{font-size:clamp(65px,19vw,112px)}.description{font-size:13px;max-width:360px}.actions{margin-top:24px}.side-note{display:none}.kanji{right:7%;top:12%;font-size:150px}.bottom{padding:14px 6%;min-height:100px}.thumb{width:58px;height:46px}.chapter{display:none}.counter{font-size:10px}.about{padding:70px 7%;grid-template-columns:1fr;gap:35px}.about-art{min-height:280px}.stats{gap:25px}footer{padding:22px 7%;gap:12px;flex-wrap:wrap}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="page" id="home">
+ <div class="backdrop" id="backdrop"></div><div class="grain"></div><div class="kanji" aria-hidden="true">愛</div>
+ <header><a class="brand" href="#home" aria-label="Gaara home">砂 <span>GAARA</span></a><button class="menu" id="menu" aria-label="Open navigation" aria-expanded="false">☰</button>
+  <nav id="nav"><a class="active" href="#home">Home</a><a href="#story">The Kazekage</a><a href="#story">Legacy</a><a href="https://naruto-official.com/en" target="_blank" rel="noreferrer">Naruto universe ↗</a></nav>
+ </header>
+ <main>
+  <section class="content"><div class="eyebrow" id="eyebrow">The fifth Kazekage</div><h1 id="name">GAARA</h1><p class="subtitle" id="subtitle">The sand guardian</p><p class="description" id="description">Once feared as a weapon, he chose to become a shield. The desert remembers his past; the village trusts his future.</p>
+   <div class="actions"><a class="primary" href="#story">Discover his story</a><a class="text-link" href="#gallery" id="galleryLink">Explore gallery ↗</a></div>
+  </section>
+  <div class="side-note">砂の守護者 · Guardian of the sand</div>
+ </main>
+ <div class="bottom" id="gallery"><div class="chapter"><div><strong id="chapterTitle">THE FIFTH KAZEKAGE</strong><small id="chapterSub">Sunagakure · Wind country</small></div></div>
+  <div class="thumbs" role="group" aria-label="Choose Gaara artwork">
+   <button class="thumb selected" data-slide="0" aria-label="Gaara, the Sand Sovereign"><img src="https://images5.alphacoders.com/141/1410564.png" alt=""></button>
+   <button class="thumb" data-slide="1" aria-label="Gaara, sand mastery"><img src="https://images3.alphacoders.com/731/thumb-1920-731454.jpg" alt=""></button>
+   <button class="thumb" data-slide="2" aria-label="Gaara, crimson portrait"><img src="https://images8.alphacoders.com/108/thumb-1920-1088994.png" alt=""></button>
+   <button class="thumb" data-slide="3" aria-label="Gaara, sand control"><img src="https://wallpapers-clan.com/wp-content/uploads/2024/04/naruto-gaara-sand-control-desktop-wallpaper-preview-1024x576.jpg" alt=""></button>
+  </div><div class="counter" id="counter">01 / 04</div>
+ </div>
+</div>
+<section class="about" id="story"><div class="about-art" role="img" aria-label="Dark portrait of Gaara"></div><div><div class="section-label">From isolation to belonging</div><h2>A heart once buried<br>in the sand.</h2><p>Gaara's journey is not simply a story of power. It is a story of a lonely child who learned to trust, a feared shinobi who found a reason to protect, and a leader who carries the hopes of an entire village.</p><p>As the Fifth Kazekage of Sunagakure, he turned the meaning of strength into something greater than fear: the courage to stand between danger and the people he loves.</p><div class="stats"><div class="stat"><b>V</b><span>Fifth Kazekage</span></div><div class="stat"><b>砂</b><span>Sand Release</span></div><div class="stat"><b>愛</b><span>Love</span></div></div></div></section>
+<footer><span>Fan-made tribute · Naruto universe</span><span>Created with respect for the original work</span></footer>
+<script>
+const slides=[
+ {image:"https://images5.alphacoders.com/141/1410564.png",eyebrow:"The fifth Kazekage",name:"GAARA",subtitle:"The sand guardian",description:"Once feared as a weapon, he chose to become a shield. The desert remembers his past; the village trusts his future.",chapter:"THE FIFTH KAZEKAGE",sub:"Sunagakure · Wind country"},
+ {image:"https://images3.alphacoders.com/731/thumb-1920-731454.jpg",eyebrow:"Master of the desert",name:"SABAKU",subtitle:"The sand awakens",description:"With a calm hand and an unbreakable will, Gaara commands the desert itself. His greatest strength is no longer the power to destroy, but the choice to protect.",chapter:"SAND MASTERY",sub:"The desert answers his call"},
+ {image:"https://images8.alphacoders.com/108/thumb-1920-1088994.png",eyebrow:"A past carved in solitude",name:"愛",subtitle:"A heart transformed",description:"The mark on his forehead once carried the weight of a painful promise. Through connection and compassion, Gaara gave that symbol a new meaning.",chapter:"THE MEANING OF LOVE",sub:"A new path begins"},
+ {image:"https://wallpapers-clan.com/wp-content/uploads/2024/04/naruto-gaara-sand-control-desktop-wallpaper-preview-1024x576.jpg",eyebrow:"Guardian of Sunagakure",name:"KAZEKAGE",subtitle:"Strength through bonds",description:"A leader shaped by hardship. Gaara stands not above his people, but beside them — a guardian whose resolve is as enduring as the desert.",chapter:"THE SAND'S SHIELD",sub:"Leader · Protector · Kazekage"}
+];
+const backdrop=document.getElementById('backdrop');
+document.querySelectorAll('.thumb').forEach(btn=>btn.addEventListener('click',()=>{
+ const i=Number(btn.dataset.slide),s=slides[i];
+ backdrop.style.backgroundImage='linear-gradient(90deg,rgba(12,8,8,.96) 0%,rgba(16,9,9,.78) 37%,rgba(16,9,9,.2) 72%,rgba(16,9,9,.48) 100%),linear-gradient(0deg,#100b0b 0%,transparent 32%,rgba(0,0,0,.12) 100%),url("'+s.image+'")';
+ ['eyebrow','name','subtitle','description','chapterTitle','chapterSub'].forEach((id,n)=>{const key=['eyebrow','name','subtitle','description','chapter','sub'][n];const el=document.getElementById(id);el.textContent=s[key];el.style.animation='none';void el.offsetWidth;el.style.animation='rise .45s both'});
+ document.querySelectorAll('.thumb').forEach(t=>{const active=t===btn;t.classList.toggle('selected',active);t.setAttribute('aria-pressed',String(active))});
+ document.getElementById('counter').textContent=String(i+1).padStart(2,'0')+' / 04';
+}));
+const menu=document.getElementById('menu'),nav=document.getElementById('nav');
+menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.textContent=open?'×':'☰'});
+nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.textContent='☰'}));
+</script>
+</body></html>
